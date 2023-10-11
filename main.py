@@ -5,8 +5,6 @@ bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 
 @bot.message_handler(commands=['start'])
 def start_comand(message):
-    
-
     markup = types.InlineKeyboardMarkup()
     bt1 = types.InlineKeyboardButton(text='y', callback_data='yes')
     bt2 = types.InlineKeyboardButton(text='n', callback_data='no')
