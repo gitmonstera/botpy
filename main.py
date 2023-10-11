@@ -18,8 +18,7 @@ def main():
 
 @bot.callback_query_handler(func=lambda call: True)
 def answer(call):
-    if call.data == 'yes':
-        pass
+    pass
 
 
 if __name__ == "__main__":
