@@ -18,8 +18,7 @@ def main():
 
 @bot.callback_query_handler(func=lambda call: True)
 def answer(call):
-    if call.data == 'yes':
-        bot.send_message(call.message.chat.id, f'Привет, {call.message.chat.first_name}' )
+    pass
 
 
 if __name__ == "__main__":
