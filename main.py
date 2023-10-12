@@ -11,14 +11,15 @@ def start_comand(message):
     markup.add(bt1, bt2)
     bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}', reply_markup=markup)
 
-@bot.message_handler(commands=['help'])    
+@bot.message_handler(commands=['help'])
 def main():
     pass
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def answer(call):
-    pass
+    if call.data == 'yes':
+        pass
 
 
 if __name__ == "__main__":
