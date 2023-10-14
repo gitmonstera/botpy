@@ -14,7 +14,7 @@ def start_comand(message):
     bt_contacts_ = types.KeyboardButton("Контакты")
     markup_rep.add(bt_about_, bt_catalog_, bt_reviews_, bt_foto_, bt_contacts_)
     bot.send_message(message.chat.id,
-    f'Привет, {message.from_user.first_name}. Бот ресторана Mucho рад видеть тебя если у вас возникнут какие-либо проблемы - /help',
+    f'Привет, {message.from_user.first_name}. Бот ресторана Mucho рад видеть тебя.',
     reply_markup=markup_rep)
 
 @bot.message_handler(commands=['help'])
@@ -26,7 +26,7 @@ def help(message):
 
 
 """ обработчик команд с шлавного меню """
-@bot.message_handler(content_types=['text', 'photo'])
+@bot.message_handler(content_types=['text'])
 def murkup_replay(message):
     if(message.text == "О нас"):
         markup_inl = types.InlineKeyboardMarkup()
@@ -67,9 +67,36 @@ def murkup_replay(message):
         bot.send_photo(message.chat.id, 'https://avatars.mds.yandex.net/get-altay/6487610/2a0000018337d092e2ab6cc180a1cb61454e/L')
         bot.send_photo(message.chat.id, 'https://avatars.mds.yandex.net/get-altay/4255939/2a00000182ba8820c81b80ce7dc6f0cac322/L')
     elif(message.text == 'Контакты'):
-        pass
+        markup_inl = types.InlineKeyboardMarkup(row_width=1)
+        bt_tg_connect_ = types.InlineKeyboardButton("связь в телеграме", url='https://t.me/MUCHO_REST')
+        bt_sayt_connect_ = types.InlineKeyboardButton("Наш сайт", url='https://mucho.clients.site/')
+        markup_inl.add(bt_tg_connect_, bt_sayt_connect_)
+        bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь или звоните нам по телефону: +7(925)562-61-64', reply_markup=markup_inl)
+
 
 """ обработчик команд О нас """
+@bot.callback_query_handler(func=lambda call:True)
+def about_(call):
+    if call.data == 'snacks':
+        markup_inl = types.InlineKeyboardMarkup(row_width=3)
+        bt_zac_1 = types.InlineKeyboardButton('Тортилья с томатами и страчателлой', callback_data='zac_1')
+        bt_zac_2 = types.InlineKeyboardButton('Начос с соусами', callback_data='zac_2')
+        bt_zac_3 = types.InlineKeyboardButton('Брускетта с ростбифом и соусом манго-чили', callback_data='zac_3')
+        bt_zac_4 = types.InlineKeyboardButton('Брускетта с тартаром из лосося и авокадо', callback_data='zac_4')
+        bt_zac_5 = types.InlineKeyboardButton('Брускетта с тартаром из лосося и клубники', callback_data='zac_5')
+        bt_zac_6 = types.InlineKeyboardButton('Пикантные крылья Баффало', callback_data='zac_6')
+        bt_zac_7 = types.InlineKeyboardButton('Гренки ржаные', callback_data='zac_7')
+        bt_zac_8 = types.InlineKeyboardButton('Кесадилья с грушей и горгонзолой', callback_data='zac_8')
+        bt_zac_9 = types.InlineKeyboardButton('Сырные палочки с брусничным соусом', callback_data='zac_9')
+        bt_zac_10 = types.InlineKeyboardButton('Хрустящие креветки со Сладким чили', callback_data='zac_10')
+        bt_zac_11 = types.InlineKeyboardButton('Буррито с цыпленком', callback_data='zac_11')
+        bt_zac_12 = types.InlineKeyboardButton('Тако с ростбифом', callback_data='zac_12')
+        bt_zac_13 = types.InlineKeyboardButton('Буррито с говядиной', callback_data='zac_13')
+        bt_zac_14 = types.InlineKeyboardButton('Тако с курицей и сладким чили', callback_data='zac_14')
+        markup_inl.add(bt_zac_1, bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
+                        bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14)
+        bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
+
 
 if __name__ == "__main__":
     bot.polling(none_stop = True)
