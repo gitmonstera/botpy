@@ -8,7 +8,7 @@ bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 def start_comand(message):
     markup_rep = types.ReplyKeyboardMarkup(resize_keyboard=True)
     bt_about_ = types.KeyboardButton("О нас")
-    bt_catalog_ = types.KeyboardButton("Каталог")
+    bt_catalog_ = types.KeyboardButton("Меню")
     bt_reviews_ = types.KeyboardButton("Отзывы")
     bt_foto_ = types.KeyboardButton("Фото")
     bt_contacts_ = types.KeyboardButton("Контакты")
@@ -36,7 +36,7 @@ def murkup_replay(message):
         bt_food_my_ = types.InlineKeyboardButton(" Еда на вынос", callback_data='bt_food_my_')
         markup_inl.add(bt_how_get_there_, bt_food_delivery_, bt_coffe_, bt_food_my_)
         bot.send_message(message.chat.id, 'О нас',  reply_markup=markup_inl)
-    elif(message.text == 'Каталог'):
+    elif(message.text == 'Меню'):
         markup_inl = types.InlineKeyboardMarkup()
         bt_snacks = types.InlineKeyboardButton("Закуски", callback_data='snacks')
         bt_hot_dishes = types.InlineKeyboardButton("Горячие блюда", callback_data='hot_dishes')
@@ -49,7 +49,7 @@ def murkup_replay(message):
         bt_children_menu = types.InlineKeyboardButton("Детское меню", callback_data='childrens_menu')
         bt_other = types.InlineKeyboardButton("Другое", callback_data='other')
         markup_inl.add(bt_snacks, bt_hot_dishes, bt_sauces, bt_side_dishes, bt_pizza, bt_salads, bt_burgers, bt_desserts, bt_children_menu, bt_other)
-        bot.send_message(message.chat.id, '<b>Каталог</b>, выбирите тип блюда', parse_mode='html', reply_markup=markup_inl)
+        bot.send_message(message.chat.id, '<b>Меню</b>, выбирите тип блюда', parse_mode='html', reply_markup=markup_inl)
     elif(message.text == 'Отзывы'):
         markup_inl = types.InlineKeyboardMarkup()
         bt_otzov = types.InlineKeyboardButton("Отзывы", url="https://mucho.clients.site/#rating")
@@ -74,9 +74,10 @@ def murkup_replay(message):
         bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь или звоните нам по телефону: +7(925)562-61-64', reply_markup=markup_inl)
 
 
-""" обработчик команд Каталог """
+""" обработчик команд Меню """
 @bot.callback_query_handler(func=lambda call:True)
 def about_(call):
+    """ Закуски """
     if call.data == 'snacks':
         markup_inl = types.InlineKeyboardMarkup(row_width=1)
         bt_zac_1 = types.InlineKeyboardButton('Тортилья с томатами и страчателлой', callback_data='zac_1')
@@ -96,17 +97,38 @@ def about_(call):
         markup_inl.add(bt_zac_1, bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
                         bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
-    # elif call.date == 'hot_dishes':
-    #     markup_inl = types.InlineKeyboardMarkup(row_width=3)
-    #     bt_hot_dishes_1 = types.InlineKeyboardButton('Ребра по-мексикански', callback_data='hot_dishes_1')
-    #     bt_hot_dishes_2 = types.InlineKeyboardButton('Голень индейки с брусничным соусом', callback_data='hot_dishes_2')
-    #     bt_hot_dishes_3 = types.InlineKeyboardButton('Мексиканский сет Карне асада', callback_data='hot_dishes_3')
-    #     bt_hot_dishes_4 = types.InlineKeyboardButton('', callback_data='hot_dishes_4')
-    #     bt_hot_dishes_5 = types.InlineKeyboardButton('', callback_data='hot_dishes_5')
-    #     bt_hot_dishes_6 = types.InlineKeyboardButton('', callback_data='hot_dishes_6')
-    #     bt_hot_dishes_7 = types.InlineKeyboardButton('', callback_data='hot_dishes_7')
-    #     bt_hot_dishes_8 = types.InlineKeyboardButton('', callback_data='hot_dishes_8')
-    #     bt_hot_dishes_9 = types.InlineKeyboardButton('', callback_data='hot_dishes_9')
+
+    """ горячие блюда """
+    if call.data == 'hot_dishes':
+        markup_inl = types.InlineKeyboardMarkup(row_width=3)
+        bt_hot_dishes_1 = types.InlineKeyboardButton('Ребра по-мексикански', callback_data='hot_dishes_1')
+        bt_hot_dishes_2 = types.InlineKeyboardButton('Голень индейки с брусничным соусом', callback_data='hot_dishes_2')
+        bt_hot_dishes_3 = types.InlineKeyboardButton('Мексиканский сет Карне асада', callback_data='hot_dishes_3')
+        bt_hot_dishes_4 = types.InlineKeyboardButton('Фахитос', callback_data='hot_dishes_4')
+        bt_hot_dishes_5 = types.InlineKeyboardButton('Бефстроганов с картофельным пюре', callback_data='hot_dishes_5')
+        bt_hot_dishes_6 = types.InlineKeyboardButton('Запеченный батат с яйцом пашот и  ростбифом', callback_data='hot_dishes_6')
+        bt_hot_dishes_7 = types.InlineKeyboardButton('Стейк из лосося со шпинатом', callback_data='hot_dishes_7')
+        bt_hot_dishes_8 = types.InlineKeyboardButton('Чили кон Карне', callback_data='hot_dishes_8')
+        bt_hot_dishes_9 = types.InlineKeyboardButton('Дабл бифштекс с картофелем фри', callback_data='hot_dishes_9')
+        markup_inl.add(bt_hot_dishes_1, bt_hot_dishes_2, bt_hot_dishes_3, bt_hot_dishes_4, bt_hot_dishes_5,
+                        bt_hot_dishes_6, bt_hot_dishes_7, bt_hot_dishes_8, bt_hot_dishes_9)
+        bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
+
+    """ горячие блюда """
+    if call.data == 'sauces':
+        markup_inl = types.InlineKeyboardMarkup(row_width=3)
+        bt_sauces_1 = types.InlineKeyboardButton('Соус BBQ', callback_data='sauces_1')
+        bt_sauces_2 = types.InlineKeyboardButton('Соус Ягодный', callback_data='sauces_2')
+        bt_sauces_3 = types.InlineKeyboardButton('Соус Блю чиз', callback_data='sauces_3')
+        bt_sauces_4 = types.InlineKeyboardButton('Соус Чесночный', callback_data='sauces_4')
+        bt_sauces_5 = types.InlineKeyboardButton('Соус сладкий чили', callback_data='sauces_5')
+        bt_sauces_6 = types.InlineKeyboardButton('Соус Перечный', callback_data='sauces_6')
+        bt_sauces_7 = types.InlineKeyboardButton('Фирменный соус Mucho', callback_data='sauces_7')
+        bt_sauces_8 = types.InlineKeyboardButton('Соус сырный', callback_data='sauces_8')
+        bt_sauces_9 = types.InlineKeyboardButton('Кетчуп', callback_data='sauces_9')
+        markup_inl.add(bt_sauces_1, bt_sauces_2, bt_sauces_3, bt_sauces_4, bt_sauces_5,
+                        bt_sauces_6, bt_sauces_7, bt_sauces_8, bt_sauces_9)
+        bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
 
 if __name__ == "__main__":
