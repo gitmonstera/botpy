@@ -74,11 +74,11 @@ def murkup_replay(message):
         bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь или звоните нам по телефону: +7(925)562-61-64', reply_markup=markup_inl)
 
 
-""" обработчик команд О нас """
+""" обработчик команд Каталог """
 @bot.callback_query_handler(func=lambda call:True)
 def about_(call):
     if call.data == 'snacks':
-        markup_inl = types.InlineKeyboardMarkup(row_width=3)
+        markup_inl = types.InlineKeyboardMarkup(row_width=1)
         bt_zac_1 = types.InlineKeyboardButton('Тортилья с томатами и страчателлой', callback_data='zac_1')
         bt_zac_2 = types.InlineKeyboardButton('Начос с соусами', callback_data='zac_2')
         bt_zac_3 = types.InlineKeyboardButton('Брускетта с ростбифом и соусом манго-чили', callback_data='zac_3')
@@ -96,6 +96,17 @@ def about_(call):
         markup_inl.add(bt_zac_1, bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
                         bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
+    # elif call.date == 'hot_dishes':
+    #     markup_inl = types.InlineKeyboardMarkup(row_width=3)
+    #     bt_hot_dishes_1 = types.InlineKeyboardButton('Ребра по-мексикански', callback_data='hot_dishes_1')
+    #     bt_hot_dishes_2 = types.InlineKeyboardButton('Голень индейки с брусничным соусом', callback_data='hot_dishes_2')
+    #     bt_hot_dishes_3 = types.InlineKeyboardButton('Мексиканский сет Карне асада', callback_data='hot_dishes_3')
+    #     bt_hot_dishes_4 = types.InlineKeyboardButton('', callback_data='hot_dishes_4')
+    #     bt_hot_dishes_5 = types.InlineKeyboardButton('', callback_data='hot_dishes_5')
+    #     bt_hot_dishes_6 = types.InlineKeyboardButton('', callback_data='hot_dishes_6')
+    #     bt_hot_dishes_7 = types.InlineKeyboardButton('', callback_data='hot_dishes_7')
+    #     bt_hot_dishes_8 = types.InlineKeyboardButton('', callback_data='hot_dishes_8')
+    #     bt_hot_dishes_9 = types.InlineKeyboardButton('', callback_data='hot_dishes_9')
 
 
 if __name__ == "__main__":
