@@ -1,6 +1,8 @@
 import telebot
 from telebot import types
 
+from menu_zac import *
+
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 
@@ -86,17 +88,18 @@ def menu_(call):
         bt_zac_3 = types.InlineKeyboardButton('Брускетта с ростбифом и соусом манго-чили', callback_data='zac_3')
         bt_zac_4 = types.InlineKeyboardButton('Брускетта с тартаром из лосося и авокадо', callback_data='zac_4')
         bt_zac_5 = types.InlineKeyboardButton('Брускетта с тартаром из лосося и клубники', callback_data='zac_5')
-        bt_zac_6 = types.InlineKeyboardButton('Пикантные крылья Баффало', callback_data='zac_6')
-        bt_zac_7 = types.InlineKeyboardButton('Гренки ржаные', callback_data='zac_7')
-        bt_zac_8 = types.InlineKeyboardButton('Кесадилья с грушей и горгонзолой', callback_data='zac_8')
-        bt_zac_9 = types.InlineKeyboardButton('Сырные палочки с брусничным соусом', callback_data='zac_9')
-        bt_zac_10 = types.InlineKeyboardButton('Хрустящие креветки со Сладким чили', callback_data='zac_10')
-        bt_zac_11 = types.InlineKeyboardButton('Буррито с цыпленком', callback_data='zac_11')
-        bt_zac_12 = types.InlineKeyboardButton('Тако с ростбифом', callback_data='zac_12')
-        bt_zac_13 = types.InlineKeyboardButton('Буррито с говядиной', callback_data='zac_13')
-        bt_zac_14 = types.InlineKeyboardButton('Тако с курицей и сладким чили', callback_data='zac_14')
+        bt_zac_6 = types.InlineKeyboardButton('Кесадилья с мясом', callback_data='zac_6')
+        bt_zac_7 = types.InlineKeyboardButton('Пикантные крылья Баффало', callback_data='zac_7')
+        bt_zac_8 = types.InlineKeyboardButton('Гренки ржаные', callback_data='zac_8')
+        bt_zac_9 = types.InlineKeyboardButton('Кесадилья с грушей и горгонзолой', callback_data='zac_9')
+        bt_zac_10 = types.InlineKeyboardButton('Сырные палочки с брусничным соусом', callback_data='zac_10')
+        bt_zac_11 = types.InlineKeyboardButton('Хрустящие креветки со Сладким чили', callback_data='zac_11')
+        bt_zac_12 = types.InlineKeyboardButton('Буррито с цыпленком', callback_data='zac_12')
+        bt_zac_13 = types.InlineKeyboardButton('Тако с ростбифом', callback_data='zac_13')
+        bt_zac_14 = types.InlineKeyboardButton('Буррито с говядиной', callback_data='zac_14')
+        bt_zac_15 = types.InlineKeyboardButton('Тако с курицей и сладким чили', callback_data='zac_15')
         markup_inl.add(bt_zac_1, bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
-                        bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14)
+                        bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14, bt_zac_15)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     """ горячие блюда """
@@ -235,11 +238,9 @@ def menu_(call):
                             bt_other_14, bt_other_15, bt_other_16, bt_other_17, bt_other_18, bt_other_19)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
-""" подробности о блюдах  """
-@bot.callback_query_handler(func=lambda call:True)
-def menu_snackes(call):
-    """ блюдо 1 """
-    pass
+    main_zac(call)
+
+
 
 
 if __name__ == "__main__":
