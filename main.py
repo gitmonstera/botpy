@@ -1,9 +1,9 @@
 import telebot
 from telebot import types
 
-from menu_zac import main_zac
-from menu_hot_dishes import main_hot_dishes
-from menu_sauces import main_sauces
+from menu_zac import *
+from menu_hot_dishes import *
+from menu_sauces import *
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')

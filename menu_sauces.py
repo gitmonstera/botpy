@@ -1,5 +1,8 @@
 from main import *
+import telebot
 from telebot import types
+
+bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 
 
 """ обработка горячих блюд """
@@ -42,6 +45,6 @@ def main_sauces(call):
         bt_back_ = types.InlineKeyboardButton("Назад", callback_data='sauces')
         markup_inl.add(bt_app_, bt_back_)
         bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3502728/ee607e5a17217e3d5d7125f2f2d9b3f5/450x300',
-                        caption="Соус сладкий чили\n 90 ₽",
+                        caption="Соус Чесночный\n 90 ₽",
                         reply_markup=markup_inl)
 

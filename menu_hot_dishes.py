@@ -1,5 +1,8 @@
 from main import *
+import telebot
 from telebot import types
+
+bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 
 
 """ обработка горячих блюд """
