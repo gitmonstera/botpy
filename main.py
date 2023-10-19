@@ -1,7 +1,8 @@
 import telebot
 from telebot import types
 
-from menu_zac import *
+from menu_zac import main_zac
+from menu_hot_dishes import main_hot_dishes
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
@@ -24,7 +25,7 @@ def help(message):
     markup_inl = types.InlineKeyboardMarkup()
     bt_tg_connect_ = types.InlineKeyboardButton("связь в телеграме", url='https://t.me/MUCHO_REST')
     markup_inl.add(bt_tg_connect_)
-    bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь', reply_markup=markup_inl)
+    bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь или звоните по телефону  +7(925)562-61-64', reply_markup=markup_inl)
 
 
 """ обработчик команд с шлавного меню """
@@ -75,6 +76,9 @@ def murkup_replay(message):
         bt_sayt_connect_ = types.InlineKeyboardButton("Наш сайт", url='https://mucho.clients.site/')
         markup_inl.add(bt_tg_connect_, bt_sayt_connect_)
         bot.send_message(message.chat.id, 'Возникли проблемы обращайтесь или звоните нам по телефону: +7(925)562-61-64', reply_markup=markup_inl)
+
+    else:
+        bot.send_message(message.chat.id, 'извените, но я вас не понимаю /help')
 
 
 """ обработчик команд Меню """
@@ -239,6 +243,8 @@ def menu_(call):
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     main_zac(call)
+
+    main_hot_dishes(call)
 
 
 
