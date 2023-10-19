@@ -3,6 +3,7 @@ from telebot import types
 
 from menu_zac import main_zac
 from menu_hot_dishes import main_hot_dishes
+from menu_sauces import main_sauces
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
@@ -243,8 +244,8 @@ def menu_(call):
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     main_zac(call)
-
     main_hot_dishes(call)
+    main_sauces(call)
 
 
 
