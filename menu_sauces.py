@@ -5,7 +5,7 @@ from telebot import types
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
 
 
-""" обработка горячих блюд """
+""" соусы """
 def main_sauces(call):
     if call.data == 'sauces_1':
         markup_inl = types.InlineKeyboardMarkup()
@@ -47,4 +47,35 @@ def main_sauces(call):
         bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3502728/ee607e5a17217e3d5d7125f2f2d9b3f5/450x300',
                         caption="Соус Чесночный\n 90 ₽",
                         reply_markup=markup_inl)
-
+    if call.data == 'sauces_6':
+        markup_inl = types.InlineKeyboardMarkup()
+        bt_app_ = types.InlineKeyboardButton("Скачать приложение", url='https://apps.apple.com/ua/app/mucho/id1633201246?l=ru')
+        bt_back_ = types.InlineKeyboardButton("Назад", callback_data='sauces')
+        markup_inl.add(bt_app_, bt_back_)
+        bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3508859/da3597905ae65643745fe831ec63b4ce/450x300',
+                        caption="Соус Перечный\n 90 ₽\n \t Описание: \nДемиглас, лук репчатый, специи",
+                        reply_markup=markup_inl)
+    if call.data == 'sauces_7':
+        markup_inl = types.InlineKeyboardMarkup()
+        bt_app_ = types.InlineKeyboardButton("Скачать приложение", url='https://apps.apple.com/ua/app/mucho/id1633201246?l=ru')
+        bt_back_ = types.InlineKeyboardButton("Назад", callback_data='sauces')
+        markup_inl.add(bt_app_, bt_back_)
+        bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3106738/243f08261e1a54eadf140e7de9d96b72/450x300',
+                        caption="Фирменный соус Mucho\n 90 ₽\n \t Описание: \nТоматный соус, чеснок, перец чили",
+                        reply_markup=markup_inl)
+    if call.data == 'sauces_8':
+        markup_inl = types.InlineKeyboardMarkup()
+        bt_app_ = types.InlineKeyboardButton("Скачать приложение", url='https://apps.apple.com/ua/app/mucho/id1633201246?l=ru')
+        bt_back_ = types.InlineKeyboardButton("Назад", callback_data='sauces')
+        markup_inl.add(bt_app_, bt_back_)
+        bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3337779/a9d6912e027dcbf671d308634fe4ed82/450x300',
+                        caption="Соус Сырный\n 90 ₽",
+                        reply_markup=markup_inl)
+    if call.data == 'sauces_9':
+        markup_inl = types.InlineKeyboardMarkup()
+        bt_app_ = types.InlineKeyboardButton("Скачать приложение", url='https://apps.apple.com/ua/app/mucho/id1633201246?l=ru')
+        bt_back_ = types.InlineKeyboardButton("Назад", callback_data='sauces')
+        markup_inl.add(bt_app_, bt_back_)
+        bot.send_photo(call.message.chat.id, photo='https://avatars.mds.yandex.net/get-eda/3770794/d0f8d65f7e7fc1802b53012deeebff91/450x300',
+                        caption="Кетчуп\n 90 ₽",
+                        reply_markup=markup_inl)

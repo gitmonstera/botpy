@@ -4,6 +4,7 @@ from telebot import types
 from menu_zac import *
 from menu_hot_dishes import *
 from menu_sauces import *
+from menu_side_dishes import *
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
@@ -246,6 +247,7 @@ def menu_(call):
     main_zac(call)
     main_hot_dishes(call)
     main_sauces(call)
+    main_side_dishes(call)
 
 
 
