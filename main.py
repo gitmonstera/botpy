@@ -54,7 +54,7 @@ def murkup_replay(message):
         bt_burgers = types.InlineKeyboardButton("Бургеры", callback_data='burgers')
         bt_children_menu = types.InlineKeyboardButton("Детское меню", callback_data='childrens_menu')
         bt_soup_ = types.InlineKeyboardButton("Супы", callback_data='soup')
-        bt_desserts_ = types.InlineKeyboardButton("Десерты", callback_data='desserts')
+        bt_desserts_ = types.InlineKeyboardButton("Пицца", callback_data='pizza')
         bt_other_ = types.InlineKeyboardButton("Другое", callback_data='other')
         markup_inl.add(bt_snacks, bt_hot_dishes, bt_sauces, bt_side_dishes, bt_salads,
                         bt_burgers, bt_children_menu, bt_soup_, bt_desserts_,  bt_other_)
@@ -92,7 +92,6 @@ def menu_(call):
     """ Закуски """
     if call.data == 'snacks':
         markup_inl = types.InlineKeyboardMarkup(row_width=1)
-        bt_zac_1 = types.InlineKeyboardButton('Тортилья с томатами и страчателлой', callback_data='zac_1')
         bt_zac_2 = types.InlineKeyboardButton('Начос с соусами', callback_data='zac_2')
         bt_zac_3 = types.InlineKeyboardButton('Брускетта с ростбифом и соусом манго-чили', callback_data='zac_3')
         bt_zac_4 = types.InlineKeyboardButton('Брускетта с тартаром из лосося и авокадо', callback_data='zac_4')
@@ -103,12 +102,11 @@ def menu_(call):
         bt_zac_9 = types.InlineKeyboardButton('Кесадилья с грушей и горгонзолой', callback_data='zac_9')
         bt_zac_10 = types.InlineKeyboardButton('Сырные палочки с брусничным соусом', callback_data='zac_10')
         bt_zac_11 = types.InlineKeyboardButton('Хрустящие креветки со Сладким чили', callback_data='zac_11')
-        bt_zac_12 = types.InlineKeyboardButton('Буррито с цыпленком', callback_data='zac_12')
         bt_zac_13 = types.InlineKeyboardButton('Тако с ростбифом', callback_data='zac_13')
         bt_zac_14 = types.InlineKeyboardButton('Буррито с говядиной', callback_data='zac_14')
         bt_zac_15 = types.InlineKeyboardButton('Тако с курицей и сладким чили', callback_data='zac_15')
-        markup_inl.add(bt_zac_1, bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
-                        bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_12, bt_zac_13, bt_zac_14, bt_zac_15)
+        markup_inl.add( bt_zac_2, bt_zac_3, bt_zac_4, bt_zac_5, bt_zac_6, bt_zac_7,
+                        bt_zac_8, bt_zac_9, bt_zac_10, bt_zac_11, bt_zac_13, bt_zac_14, bt_zac_15)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     """ горячие блюда """
@@ -121,10 +119,9 @@ def menu_(call):
         bt_hot_dishes_5 = types.InlineKeyboardButton('Бефстроганов с картофельным пюре', callback_data='hot_dishes_5')
         bt_hot_dishes_6 = types.InlineKeyboardButton('Запеченный батат с яйцом пашот и  ростбифом', callback_data='hot_dishes_6')
         bt_hot_dishes_7 = types.InlineKeyboardButton('Стейк из лосося со шпинатом', callback_data='hot_dishes_7')
-        bt_hot_dishes_8 = types.InlineKeyboardButton('Чили кон Карне', callback_data='hot_dishes_8')
         bt_hot_dishes_9 = types.InlineKeyboardButton('Дабл бифштекс с картофелем фри', callback_data='hot_dishes_9')
         markup_inl.add(bt_hot_dishes_1, bt_hot_dishes_2, bt_hot_dishes_3, bt_hot_dishes_4, bt_hot_dishes_5,
-                        bt_hot_dishes_6, bt_hot_dishes_7, bt_hot_dishes_8, bt_hot_dishes_9)
+                        bt_hot_dishes_6, bt_hot_dishes_7, bt_hot_dishes_9)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     """ соусы """
@@ -209,15 +206,18 @@ def menu_(call):
         markup_inl.add(bt_soup_1, bt_soup_2, bt_soup_3, bt_soup_4, bt_soup_5, bt_soup_6)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
-    """ Десерты """
-    if call.data == 'desserts':
+    """ Пицца """
+    if call.data == 'pizza':
         markup_inl = types.InlineKeyboardMarkup(row_width=1)
-        bt_desserts_1 = types.InlineKeyboardButton('Чизкейк Сан-Себастьян', callback_data='desserts_1')
-        bt_desserts_2 = types.InlineKeyboardButton('Тарт Лимонная кростата', callback_data='desserts_2')
-        bt_desserts_3 = types.InlineKeyboardButton('Тарт малина-маракуйя', callback_data='desserts_3')
-        bt_desserts_4 = types.InlineKeyboardButton('Шоколадный флан', callback_data='desserts_4')
-        bt_desserts_5 = types.InlineKeyboardButton('Чизкейк Нью-Йорк с маракуйей', callback_data='desserts_5')
-        markup_inl.add(bt_desserts_1, bt_desserts_2, bt_desserts_3, bt_desserts_4, bt_desserts_5)
+        bt_pizza_1 = types.InlineKeyboardButton('Большая пицца Вилларибо', callback_data='pizza_1')
+        bt_pizza_2 = types.InlineKeyboardButton('Большая пицца Маргарита', callback_data='pizza_2')
+        bt_pizza_3 = types.InlineKeyboardButton('Большая пицца Mucho Четыре сыра', callback_data='pizza_3')
+        bt_pizza_4 = types.InlineKeyboardButton('Большая пицца Дорблю с говядиной', callback_data='pizza_4')
+        bt_pizza_5 = types.InlineKeyboardButton('Пицца Дорблю с говядиной и сладкой вишней', callback_data='pizza_5')
+        bt_pizza_6 = types.InlineKeyboardButton('Пицца Вилларибо', callback_data='pizza_6')
+        bt_pizza_7 = types.InlineKeyboardButton('Пицца Mucho Четыре сыра', callback_data='pizza_7')
+        bt_pizza_8 = types.InlineKeyboardButton('Пицца Маргарита', callback_data='pizza_8')
+        markup_inl.add(bt_pizza_1, bt_pizza_2, bt_pizza_3, bt_pizza_4, bt_pizza_5, bt_pizza_6, bt_pizza_7, bt_pizza_8)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     """ Закуски """
