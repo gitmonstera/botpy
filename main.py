@@ -8,6 +8,7 @@ from menu_side_dishes import *
 from menu_salads import *
 from menu_burger import *
 from childrens_menu import *
+from pizza import *
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
@@ -254,6 +255,7 @@ def menu_(call):
     main_salads(call)
     main_burger(call)
     main_childrens_menu(call)
+    main_pizza(call)
 
 
 
