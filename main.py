@@ -9,6 +9,8 @@ from menu_salads import *
 from menu_burger import *
 from childrens_menu import *
 from pizza import *
+from soup import *
+from other import *
 
 
 bot = telebot.TeleBot('5322324188:AAGsEpCEQCFR9DtI6bN6fv0f3CNPDCadEMk')
@@ -40,10 +42,7 @@ def murkup_replay(message):
     if(message.text == "О нас"):
         markup_inl = types.InlineKeyboardMarkup()
         bt_how_get_there_ = types.InlineKeyboardButton("добраться", url="https://yandex.ru/maps/213/moscow/?from=api-maps&ll=37.509382%2C55.755584&mode=routes&origin=jsapi_2_1_79&rtext=~55.755584%2C37.509382&rtt=auto&ruri=~&z=15")
-        bt_food_delivery_ = types.InlineKeyboardButton(" Доставка еды", callback_data='bt_food_delivery_')
-        bt_coffe_ = types.InlineKeyboardButton(" Кофе с собой", callback_data='bt_coffe_')
-        bt_food_my_ = types.InlineKeyboardButton(" Еда на вынос", callback_data='bt_food_my_')
-        markup_inl.add(bt_how_get_there_, bt_food_delivery_, bt_coffe_, bt_food_my_)
+        markup_inl.add(bt_how_get_there_)
         bot.send_message(message.chat.id, 'О нас',  reply_markup=markup_inl)
     elif(message.text == 'Меню'):
         markup_inl = types.InlineKeyboardMarkup()
@@ -224,28 +223,23 @@ def menu_(call):
     """ Закуски """
     if call.data == 'other':
         markup_inl = types.InlineKeyboardMarkup(row_width=1)
-        bt_other_1 = types.InlineKeyboardButton('Паста со шпинатом и томленной говядиной', callback_data='other_1')
-        bt_other_2 = types.InlineKeyboardButton('Лимонад Маракуйя', callback_data='other_2')
+        bt_other_1 = types.InlineKeyboardButton('Лимонад Маракуйя', callback_data='other_1')
+        bt_other_2 = types.InlineKeyboardButton('Паста со шпинатом и томленной говядиной', callback_data='other_2')
         bt_other_3 = types.InlineKeyboardButton('Лимонад Мохито клубничный', callback_data='other_3')
         bt_other_4 = types.InlineKeyboardButton('Лимонад Мохито', callback_data='other_4')
         bt_other_5 = types.InlineKeyboardButton('Стейк Мачете', callback_data='other_5')
         bt_other_6 = types.InlineKeyboardButton('Стейк Стриплойн', callback_data='other_6')
-        bt_other_7 = types.InlineKeyboardButton('Фланк', callback_data='other_7')
-        bt_other_8 = types.InlineKeyboardButton('Паста фарфалле с лососем', callback_data='other_8')
-        bt_other_9 = types.InlineKeyboardButton('Пицца Дор Блю с говядиной и сладкой вишней', callback_data='other_9')
-        bt_other_10 = types.InlineKeyboardButton('Пицца Вилларибо', callback_data='other_10')
-        bt_other_11 = types.InlineKeyboardButton('Морс ягодный домашний', callback_data='other_11')
-        bt_other_12 = types.InlineKeyboardButton('Стейк филе миньон', callback_data='otherother_12')
-        bt_other_13 = types.InlineKeyboardButton('Свежевыжатый сок', callback_data='other_13')
-        bt_other_14 = types.InlineKeyboardButton('Стейк Рибай', callback_data='other_14')
-        bt_other_15 = types.InlineKeyboardButton('Паста пенне Арабьята', callback_data='other_15')
-        bt_other_16 = types.InlineKeyboardButton('Паста корбонара', callback_data='other_16')
-        bt_other_17 = types.InlineKeyboardButton('Тальятелле Болоньезе', callback_data='other_17')
-        bt_other_18 = types.InlineKeyboardButton('Пицца Mucho четыре сыра', callback_data='other_18')
-        bt_other_19 = types.InlineKeyboardButton('Пицца маргарита', callback_data='other_19')
+        bt_other_7 = types.InlineKeyboardButton('Шоколадный флан', callback_data='other_7')
+        bt_other_8 = types.InlineKeyboardButton('Фланк', callback_data='other_8')
+        bt_other_9 = types.InlineKeyboardButton('Морс ягодный домашний', callback_data='other_9')
+        bt_other_10 = types.InlineKeyboardButton('Стейк филе миньон', callback_data='other_10')
+        bt_other_11 = types.InlineKeyboardButton('Свежевыжатый сок', callback_data='other_11')
+        bt_other_12 = types.InlineKeyboardButton('Стейк Рибай', callback_data='other_12')
+        bt_other_13 = types.InlineKeyboardButton('Паста пенне Арабьята', callback_data='otherother_13')
+        bt_other_14 = types.InlineKeyboardButton('Тальятелле Болоньезе', callback_data='other_14')
         markup_inl.add(bt_other_1, bt_other_2, bt_other_3, bt_other_4, bt_other_5, bt_other_6, bt_other_7,
                         bt_other_8, bt_other_9, bt_other_10, bt_other_11, bt_other_12, bt_other_13,
-                            bt_other_14, bt_other_15, bt_other_16, bt_other_17, bt_other_18, bt_other_19)
+                            bt_other_14)
         bot.send_message(call.message.chat.id, 'Выберите блюдо, что бы узнать о нем подробнее', reply_markup=markup_inl)
 
     main_zac(call)
@@ -256,6 +250,8 @@ def menu_(call):
     main_burger(call)
     main_childrens_menu(call)
     main_pizza(call)
+    main_soup(call)
+    main_other(call)
 
 
 
